@@ -30,7 +30,7 @@ export  const MainPage: React.FC = () => {
       try {
         await battleService.initializeTeams(MAX_TEAM_SIZE);
         updateBattleState();
-        setRoundNumber(0);
+        setRoundNumber(battleService.currentRound);
         setWinner(null);
       } catch (err: any) {
         setError(`Failed to load teams: ${err.message || err}`);

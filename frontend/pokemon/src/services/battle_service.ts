@@ -16,15 +16,11 @@ export class BattleService {
   private favIndex = 0;
   private oppIndex = 0;
 
-  private currentRound = 0;
+  public currentRound = 1;
   private maxRounds = 100;
 
   private winner: 'favorite' | 'opponent' | null = null;
 
-  /**
-   * Loads and initializes the teams from dependencies.
-   * Keeps an original copy for reset.
-   */
   async initializeTeams(maxTeamSize: number = 6) {
     const allPokemons = await pokemonService.getPokemons();
     const favTeam = await teamService.getFavoriteTeam();
