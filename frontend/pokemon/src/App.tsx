@@ -1,26 +1,32 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'; // This is where we'll define the black background
+import './App.css';
 import HomePage from './pages/homepage/HomePage';
-import {MainPage} from './pages/mainpage/MainPage';
-import TestPage from './pages/TestPage';
+import MainPage from './pages/mainpage/MainPage';
 
+function Header() {
+  const location = useLocation();
+
+  return (
+    <header className="py-4 bg-primary text-white shadow-sm d-flex justify-content-between align-items-center px-4">
+      <h1 className="mb-0">Pokemon App Challenge</h1>
+      {location.pathname !== '/main' && (
+        <Link to="/main">
+          <Button variant="light">Go to Main Page</Button>
+        </Link>
+      )}
+    </header>
+  );
+}
 
 function App() {
   return (
     <Router>
-      {/* Removed bg-light here. The black background will come from App.css */}
       <div className="App min-vh-100 d-flex flex-column">
-        <header className="py-4 bg-primary text-white shadow-sm d-flex justify-content-between align-items-center px-4">
-          <h1 className="mb-0">Pokemon App Challenge</h1>
-          <Link to="/main">
-            <Button variant="light">Go to Main Page</Button>
-          </Link>
-        </header>
-
+        <Header />
         <main className="flex-grow-1">
           <Routes>
             <Route path="/" element={<HomePage />} />
