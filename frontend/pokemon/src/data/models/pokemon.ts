@@ -1,13 +1,12 @@
 export interface PokemonEntity {
   id: number;
   name: string;
-  type: number; // foreign key id
+  type: number;
   image?: string;
   power: number;
   life: number;
 }
 
-// models/PokemonModel.ts
 export interface PokemonModel {
   id: number;
   name: string;

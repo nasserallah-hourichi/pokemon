@@ -11,7 +11,6 @@ export interface IPokemonRepository {
 export class PokemonRepositoryImpl implements IPokemonRepository {
   constructor(private dataSource: IPokemonDataSource) {}
 
-  /** Convert a PokemonModel (from DB) into a PokemonEntity (domain) */
   private mapModelToEntity(model: PokemonModel): PokemonModel {
     return {
       id: model.id,
@@ -23,7 +22,6 @@ export class PokemonRepositoryImpl implements IPokemonRepository {
     };
   }
 
-  /** Converts a team id + name + ids into a TeamEntity */
   private mapIdToTeamEntity(id: number, name: string, pokemonIds: number[] = []): TeamEntity {
     return { id, name, pokemonIds };
   }

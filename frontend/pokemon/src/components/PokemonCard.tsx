@@ -4,7 +4,7 @@ interface PokemonCardProps {
   id: number;
   name: string;
   image: string;
-  defeated?: boolean; // new optional prop
+  defeated?: boolean;
 }
 
 const PokemonCard: React.FC<PokemonCardProps> = ({ id, name, image, defeated = false }) => {

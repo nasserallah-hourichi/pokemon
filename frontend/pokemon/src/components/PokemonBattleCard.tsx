@@ -4,7 +4,7 @@ interface PokemonBattleCardProps {
   id: number;
   name: string;
   image: string;
-  health: number;   // 0-100
+  health: number;  
   attack: number;
   onAttack?: () => void;
 }
@@ -23,7 +23,6 @@ const PokemonBattleCard: React.FC<PokemonBattleCardProps> = ({ id, name, image, 
       fontFamily: 'Arial, sans-serif',
       userSelect: 'none',
     }}>
-      {/* Health Bar */}
       <div style={{
         height: 20,
         borderRadius: 10,
@@ -53,7 +52,6 @@ const PokemonBattleCard: React.FC<PokemonBattleCardProps> = ({ id, name, image, 
           {validHealth}
         </div>
 
-        {/* Show health number outside if bar too small */}
         {validHealth < 15 && (
           <span style={{
             position: 'absolute',
@@ -70,9 +68,7 @@ const PokemonBattleCard: React.FC<PokemonBattleCardProps> = ({ id, name, image, 
         )}
       </div>
 
-      {/* Circle container (relative) */}
       <div style={{ position: 'relative', width: 120, height: 120, margin: '0 auto' }}>
-        {/* Circle with Image */}
         <div style={{
           width: 120,
           height: 120,
@@ -91,7 +87,6 @@ const PokemonBattleCard: React.FC<PokemonBattleCardProps> = ({ id, name, image, 
           />
         </div>
 
-        {/* Sword button - bottom right overlap */}
         <button
           onClick={onAttack}
           aria-label={`Attack with ${name}`}
@@ -118,7 +113,6 @@ const PokemonBattleCard: React.FC<PokemonBattleCardProps> = ({ id, name, image, 
         </button>
       </div>
 
-      {/* Name, ID, Attack below */}
       <div style={{ marginTop: 16, textAlign: 'center' }}>
         <h3 style={{ margin: 4 }}>{name} #{id}</h3>
         <p style={{ margin: 2, color: '#555' }}><strong>Attack:</strong> {attack}</p>

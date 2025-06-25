@@ -27,7 +27,6 @@ export class PokemonDataSourceImpl implements IPokemonDataSource {
   }
 
   async getPokemonWithWeaknessesById(id: number): Promise<PokemonModel | null> {
-    // Fetch pokemon with nested type as an array
     const { data: pokemonData, error: pokemonError } = await supabase
       .from('pokemon')
       .select(`
@@ -46,12 +45,10 @@ export class PokemonDataSourceImpl implements IPokemonDataSource {
       return null;
     }
   
-    // Extract single type object (first element of the array)
     const typeObj = Array.isArray(pokemonData.type) && pokemonData.type.length > 0
       ? pokemonData.type[0]
       : null;
   
-    // Fetch weaknesses for the pokemon's type (if typeObj exists)
     let weaknessesData: any[] = [];
     let weaknessesError = null;
     if (typeObj) {
