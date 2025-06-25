@@ -1,38 +1,35 @@
-.App {
-  text-align: center;
+/* src/App.css */
+
+/* ... (previous styles) ... */
+
+.pokemon-card-selectable {
+  transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  border: 1px solid #495057; /* Default border color */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.pokemon-card-selectable:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.pokemon-card-selectable.border-primary {
+  border-color: #0d6efd !important; /* Primary color for selected state */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Ensure text in forms is visible on black background */
+.form-label {
+    color: #f8f9fa; /* Light color for form labels */
 }
 
-.App-link {
-  color: #61dafb;
+.form-control.bg-dark {
+    background-color: #343a40 !important; /* Slightly lighter dark for input fields */
+    color: #f8f9fa !important;
+    border-color: #6c757d !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-control.bg-dark:focus {
+    background-color: #343a40 !important;
+    color: #f8f9fa !important;
+    border-color: #0d6efd !important; /* Highlight focus with primary color */
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
